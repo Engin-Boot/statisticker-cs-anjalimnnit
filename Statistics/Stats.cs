@@ -25,5 +25,12 @@ public class Stats
             get{ return min;}
             set{min=value;  }
         }
+        public Stats()
+        {
+            Average=double.NaN;
+            Max=double.NaN;
+            Min=double.NaN;
+
+        }
     }
 }

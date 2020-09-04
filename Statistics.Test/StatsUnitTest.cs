@@ -12,7 +12,7 @@ namespace Statistics.Test
     {
         
         [Fact]
-        public void ReportsAverageMinMax()
+        public void ReportsCalulatedStatisticsForAListOfNumbers()
         {
             var statsComputer = new StatsComputer();
             var computedStats = statsComputer.CalculateStatistics(
@@ -35,5 +35,6 @@ namespace Statistics.Test
             //Double.NaN (not-a-number), as described in
             //https://docs.microsoft.com/en-us/dotnet/api/system.double.nan?view=netcore-3.1
         }
+        
     }
 }

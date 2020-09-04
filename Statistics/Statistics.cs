@@ -13,12 +13,10 @@ namespace Statistics
         public Stats CalculateStatistics(List<double> numbers)
         {
             Stats obj = new Stats();
-            if (numbers.Count == 0) {
-                obj.Max = double.NaN;
-                obj.Min = double.NaN;
-                obj.Average = double.NaN;
+            if (numbers.Count == 0) 
                 return obj;
-            }
+            if(numbers.Contains(double.NaN))
+            numbers.RemoveAll(double.IsNaN);
             obj.Max = numbers.Max();
             obj.Min = numbers.Min();
             obj.Average = numbers.Average();
