@@ -15,11 +15,13 @@ namespace Statistics
             Stats obj = new Stats();
             if (numbers.Count == 0) 
                 return obj;
-            if(numbers.Contains(double.NaN))
-            numbers.RemoveAll(double.IsNaN);
-            obj.Max = numbers.Max();
-            obj.Min = numbers.Min();
-            obj.Average = numbers.Average();
+            List<double> ListWithoutNanValues = new List<double>();
+            ListWithoutNanValues.AddRange(numbers);
+            if(ListWithoutNanValues.Contains(double.NaN))
+            ListWithoutNanValues.RemoveAll(double.IsNaN);
+            obj.Max = ListWithoutNanValues.Max();
+            obj.Min = ListWithoutNanValues.Min();
+            obj.Average = ListWithoutNanValues.Average();
             return obj;
         }
     }
