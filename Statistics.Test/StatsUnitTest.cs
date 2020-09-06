@@ -34,18 +34,21 @@ namespace Statistics.Test
     
         }
         [Fact]
-        public void WhenCallerInvokesAListOfNumbersHavingNaNThenStatsOfRemainingAreReturned()
-        {
+        public void WhenCallerInvokesAListOfNumbersHavingNaNThenStatsOfRemainingAreReturnedAndListSizeRemainsUnchanged()
+        {   List<double> ListWithNanValues = new List<double>() {1.8,double.NaN,6.9,1.1};
+            int count=ListWithNanValues.Count;
             var statsComputer = new StatsComputer();
             var computedStats = statsComputer.CalculateStatistics(
-                new List<double>{1.8,double.NaN,6.9,1.1});
+                ListWithNanValues);
                 float epsilon = 0.001F;
             Assert.True(Math.Abs(computedStats.Average - 3.26666667) <= epsilon);
             Assert.True(Math.Abs(computedStats.Max - 6.9) <= epsilon);
             Assert.True(Math.Abs(computedStats.Min - 1.1) <= epsilon);
+            Assert.True(ListWithNanValues.Count== count);
           
             
         }
+    
         
     }
 }
